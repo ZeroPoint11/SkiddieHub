@@ -1,0 +1,108 @@
+getgenv().SecureMode = true
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Skiddie Hub",
+	LoadingTitle = "Loading Skiddie Hub...",
+	LoadingSubtitle = "by, XLUVXS",
+	ConfigurationSaving = {
+		Enabled = false,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "SkiddieHub"
+	},
+        Discord = {
+        	Enabled = true,
+        	Invite = "RgQqepgQDa",
+        	RememberJoins = true
+        },
+	KeySystem = true,
+	KeySettings = {
+		Title = "Key System | Skiddie-Hub Paid",
+		Subtitle = "Key System",
+		Note = "Skiddie Hub Is Currently In Beta, So Please Contact Any Errors To Our Discord!",
+		FileName = "SkiddieKey",
+		SaveKey = false,
+		GrabKeyFromSite = false,
+		Key = "SkiddieHubBeta"
+	}
+})
+
+Rayfield:Notify({
+    Title = "Correct Code",
+    Content = "discord.gg/RgQqepgQDa",
+    Duration = 4.5,
+    Image = 4483362458,
+    Actions = {
+        Ignore = {
+            Name = "Okay!",
+            Callback = function()
+                print("User: Okay!")
+            end
+		},
+	},
+}) 
+
+            --MAIN--
+
+local  Tab = Window:CreateTab("Main")
+local Section = Tab:CreateSection("Aimbot")
+
+
+local Button = Tab:CreateButton({
+	Name = "Aimbot",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/XsdVpc5f"))()
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "Reset Aimbot",
+	Callback = function()
+        print("Reset Aimbot Script")
+	end,
+})
+
+local Section = Tab:CreateSection("Extra")
+
+local Button = Tab:CreateButton({
+	Name = "Esp",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/8Uc0pXYu"))()
+	end,
+})
+
+local Slider = Tab:CreateSlider({
+	Name = "Speed Changer",
+	Range = {16, 500},
+	Increment = 10,
+	Suffix = "Speed",
+	CurrentValue = 4,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+        --Script Here
+	end,
+})
+
+local Input = Tab:CreateInput({
+	Name = "Target Player (Not Working)",
+	PlaceholderText = "Player Name",
+	RemoveTextAfterFocusLost = false,
+	Callback = function(Text)
+		--Script Here
+    		-- The variable (Text) is a string for the value in the text box
+	end,
+})
+
+local Keybind = Tab:CreateKeybind({
+	Name = "Target Keybind (Not Working)",
+	CurrentKeybind = "Q",
+	HoldToInteract = false,
+	Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Keybind)
+        --Script Here
+    		-- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+	end,
+})
+
+Rayfield:LoadConfiguration()
